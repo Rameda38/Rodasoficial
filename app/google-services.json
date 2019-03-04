@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "193671565052",
+    "firebase_url": "https://rodasoficial-rameda.firebaseio.com",
+    "project_id": "rodasoficial-rameda",
+    "storage_bucket": "rodasoficial-rameda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193671565052:android:b5033f5e00faf564",
+        "android_client_info": {
+          "package_name": "com.example.rodas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193671565052-0b8h00ci70kaiomu4n5nfljo457egonc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rodas",
+            "certificate_hash": "6a6d33b4d6e11920e4b07831d36537750f6d9cf9"
+          }
+        },
+        {
+          "client_id": "193671565052-54ifpahsoer4aohrf891rls9f1aqp7p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjMelz4e7fRiXg8EFRvHdZKtqoJMeKB7M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193671565052-54ifpahsoer4aohrf891rls9f1aqp7p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

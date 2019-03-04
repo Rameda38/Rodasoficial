@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rodas">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Intro">
+        <activity android:name=".activity.GastosFixos.ValorCarroActivity"></activity>
+        <activity android:name=".activity.GastosFixos.SeguroActivity" />
+        <activity android:name=".activity.GastosFixos.gastoOleoActivity" />
+        <activity android:name=".activity.GastosFixos.gastoPneusActivity" />
+        <activity android:name=".activity.GastosFixos.PrestacaoActivity" />
+        <activity android:name=".activity.GastosFixos.ipvaActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.InformacoesCarroActivity" />
+        <activity
+            android:name=".activity.GastosFixos.ApresentacaoActivity"
+            android:theme="@style/Theme.Intro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.CadastroActivity" />
+        <activity
+            android:name=".activity.PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ReceitasActivity"
+            android:theme="@style/receitaTheme" />
+        <activity
+            android:name=".activity.DespesasActivity"
+            android:theme="@style/despesaTheme" />
+    </application>
+
+</manifest>
