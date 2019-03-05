@@ -8,14 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
-import com.example.rodas.Calculos;
+import com.example.rodas.model.Calculos;
 import com.example.rodas.R;
 
 public class ValorCarroActivity extends AppCompatActivity {
     private EditText valorCarro;
     private Button vaiparaSeguro;
+    private Switch sw_aluguel;
 
 
     @Override
@@ -24,25 +26,24 @@ public class ValorCarroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_valor_carro);
         valorCarro = findViewById(R.id.ed_valorCarro);
         vaiparaSeguro = findViewById(R.id.btt_vaiparaSeguro);
+        sw_aluguel = findViewById(R.id.sw_alugap);
 
-
-        final Intent enviaparaCalculo = new Intent(this, Calculos.class);
 
 
         vaiparaSeguro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    Double valor = Double.parseDouble(valorCarro.getText().toString());
-                    enviaparaCalculo.putExtra("Valor do Carro", valor);
+                    float valor = Float.parseFloat(valorCarro.getText().toString());
 
-                    Calculos calculos = new Calculos();
-                    calculos.setValorCarro(valor);
-                    Toast.makeText(getApplicationContext(), "fffffff" + calculos.getValorCarro(), Toast.LENGTH_SHORT).show();
-                    Intent startSeguro = new Intent(ValorCarroActivity.this, SeguroActivity.class);
+                    Intent startSeguro = new Intent(getApplicationContext(), SeguroActivity.class);
+
+                    startSeguro.putExtra("i","dfdfdfdfdfddfdf");
+                    startSeguro.putExtra("valor",valor);
+
                     ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.fade_in, R.anim.fade_out);
                     ActivityCompat.startActivity(ValorCarroActivity.this, startSeguro, activityOptionsCompat.toBundle());
-                    finish();
+
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),"Erro ao preencher os dados",Toast.LENGTH_SHORT).show();
                 }

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.rodas.Calculos;
+import com.example.rodas.model.Calculos;
 import com.example.rodas.R;
 
 public class ipvaActivity extends AppCompatActivity {
@@ -26,19 +26,24 @@ public class ipvaActivity extends AppCompatActivity {
         vaiparaOleo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 try {
                     Double valor = Double.parseDouble(valorIpva.getText().toString());
-                    Calculos calculos = new Calculos();
-                    calculos.setIpva(valor);
-                    Toast.makeText(getApplicationContext(), "fffffff" + calculos.getIpva(),
-                            Toast.LENGTH_SHORT).show();
+
+                    Bundle dados = getIntent().getExtras();
+
+                    float ValorCarro = dados.getFloat("ValorCarro");
+                    double Seguro = dados.getDouble("Seguro");
+
                     Intent startOleo = new Intent(ipvaActivity.this, gastoOleoActivity.class);
+                    startOleo.putExtra("ValorCarro",ValorCarro);
+                    startOleo.putExtra("Seguro",Seguro);
+                    startOleo.putExtra("ipva",valor);
+
+
                     ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation
                             (getApplicationContext(), R.anim.fade_in, R.anim.fade_out);
                     ActivityCompat.startActivity(ipvaActivity.this, startOleo,
                             activityOptionsCompat.toBundle());
-                    finish();
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Erro ao preencher os dados",
                             Toast.LENGTH_SHORT).show();

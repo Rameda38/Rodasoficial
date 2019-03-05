@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Intro">
-        <activity android:name=".activity.GastosFixos.ValorCarroActivity"></activity>
+        <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.GastosFixos.SeguroActivity" />
         <activity android:name=".activity.GastosFixos.gastoOleoActivity" />
         <activity android:name=".activity.GastosFixos.gastoPneusActivity" />
         <activity android:name=".activity.GastosFixos.PrestacaoActivity" />
         <activity android:name=".activity.GastosFixos.ipvaActivity" />
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.GastosFixos.ApresentacaoActivity" />
         <activity android:name=".activity.InformacoesCarroActivity" />
         <activity
-            android:name=".activity.GastosFixos.ApresentacaoActivity"
+            android:name=".activity.GastosFixos.ValorCarroActivity"
             android:theme="@style/Theme.Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

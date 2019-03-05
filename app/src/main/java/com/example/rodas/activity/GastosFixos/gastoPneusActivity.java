@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.rodas.Calculos;
+import com.example.rodas.model.Calculos;
 import com.example.rodas.R;
 import com.example.rodas.activity.PrincipalActivity;
 
@@ -29,10 +29,28 @@ public class gastoPneusActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    Double valor = Double.parseDouble(gastoPneus.getText().toString());
+                    Double Pneus = Double.parseDouble(gastoPneus.getText().toString());
+
+                    Bundle dados = getIntent().getExtras();
+                    Float ValorCarro = dados.getFloat("ValorCarro");
+                    Double Seguro = dados.getDouble("Seguro");
+                    Double ipva = dados.getDouble("ipva");
+                    Double Oleo = dados.getDouble("Oleo");
+
                     Calculos calculos = new Calculos();
-                    calculos.setValorPneus(valor);
-                    Toast.makeText(getApplicationContext(), "fffffff" + calculos.getValorPneus(), Toast.LENGTH_SHORT).show();
+                    calculos.setValorCarro(ValorCarro);
+                    calculos.setIpva(ipva);
+                    calculos.setValorOleo(Oleo);
+                    calculos.setValorPneus(Pneus);
+                    calculos.setValorSeguro(Seguro);
+                    calculos.salvarvalores();
+
+
+
+
+
+
+                    Toast.makeText(getApplicationContext(), "\n"+ValorCarro+"\n"+ipva+"\n"+Oleo+"\n"+Seguro+"\n"+Pneus, Toast.LENGTH_SHORT).show();
                     Intent startPrincipal = new Intent(gastoPneusActivity.this, PrincipalActivity.class);
                     ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.fade_in, R.anim.fade_out);
                     ActivityCompat.startActivity(gastoPneusActivity.this, startPrincipal, activityOptionsCompat.toBundle());

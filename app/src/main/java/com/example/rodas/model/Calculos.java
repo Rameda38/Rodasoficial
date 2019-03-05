@@ -1,4 +1,9 @@
-package com.example.rodas;
+package com.example.rodas.model;
+
+import com.example.rodas.config.ConfiguracaoFirebase;
+import com.example.rodas.helper.Base64Custom;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 public class Calculos {
 
@@ -9,6 +14,19 @@ public class Calculos {
     private double valorOleo;
     private double valorPneus;
     private double prestacao;
+
+    public void salvarvalores(){
+        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        String idUsuario = Base64Custom.codificarBase64( autenticacao.getCurrentUser().getEmail() );
+
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("VAloresFixos")
+                .child( idUsuario )
+                .push()
+                .setValue(this);
+
+    }
+
 
 
     public double getValorSeguro() {

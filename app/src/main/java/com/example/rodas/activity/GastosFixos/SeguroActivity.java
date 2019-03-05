@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.rodas.Calculos;
+import com.example.rodas.model.Calculos;
 import com.example.rodas.R;
 
 public class SeguroActivity extends AppCompatActivity {
@@ -25,31 +25,29 @@ public class SeguroActivity extends AppCompatActivity {
         vaiparaipva = findViewById(R.id.btt_proxIpva);
 
 
-        final Intent enviaparaCalculo = new Intent(this, Calculos.class);
-
-
         vaiparaipva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
                     Double valor = Double.parseDouble(ValorSeguro.getText().toString());
-                    enviaparaCalculo.putExtra("Valor do Carro", valor);
 
-                    Calculos calculos = new Calculos();
-                    calculos.setValorSeguro(valor);
+                    Bundle dados = getIntent().getExtras();
+                    String DFdfd = dados.getString("i");
+                   float valorCarro = dados.getFloat("valor");
+
+
                     Intent startIpva = new Intent(SeguroActivity.this, ipvaActivity.class);
-                    Toast.makeText(getApplicationContext(), "fffffff" + calculos.getValorSeguro(),
-                            Toast.LENGTH_SHORT).show();
+
+                    startIpva.putExtra("ValorCarro",valorCarro);
+                    startIpva.putExtra("Seguro",valor);
+
                     ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.fade_in, R.anim.fade_out);
                     ActivityCompat.startActivity(SeguroActivity.this, startIpva, activityOptionsCompat.toBundle());
-                    finish();
-                }catch (Exception e){
-                Toast.makeText(getApplicationContext(),"Erro ao preencher os dados",Toast.LENGTH_SHORT).show();
-            }
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Erro ao preencher os dados", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
-
-
-    }
+      }
 }
