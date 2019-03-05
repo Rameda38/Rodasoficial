@@ -19,6 +19,7 @@ import com.example.rodas.R;
 import com.example.rodas.adapter.AdapterMovimentacao;
 import com.example.rodas.config.ConfiguracaoFirebase;
 import com.example.rodas.helper.Base64Custom;
+import com.example.rodas.model.Calculos;
 import com.example.rodas.model.Movimentacao;
 import com.example.rodas.model.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,6 +55,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private Movimentacao movimentacao;
     private DatabaseReference movimentacaoRef;
     private String mesAnoSelecionado;
+    Calculos calculos = new Calculos();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

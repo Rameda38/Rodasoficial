@@ -17,6 +17,8 @@ import com.example.rodas.activity.PrincipalActivity;
 public class gastoPneusActivity extends AppCompatActivity {
     private EditText gastoPneus;
     private Button vaiparaFim;
+    Calculos calculos = new Calculos();
+    Double[] calculo = new Double[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +38,32 @@ public class gastoPneusActivity extends AppCompatActivity {
                     Double Seguro = dados.getDouble("Seguro");
                     Double ipva = dados.getDouble("ipva");
                     Double Oleo = dados.getDouble("Oleo");
-
-                    Calculos calculos = new Calculos();
+                    /******************************************************************************************/
                     calculos.setValorCarro(ValorCarro);
+                    Double CalcDepreciacao = calculos.CalculoDepreciacao();
+                    calculos.setCalculoDepreciacao(CalcDepreciacao);
+                    /*****************************************************************************************/
                     calculos.setIpva(ipva);
+                    Double calcIpva = calculos.CalculoIpva();
+                    calculos.setCalculoIpva(calcIpva);
+                    /*****************************************************************************************/
                     calculos.setValorOleo(Oleo);
+                    Double calcOleo = calculos.CalculoOleo();
+                    calculos.setCalculoOleo(calcOleo);
+                    /*******************************************************************************************/
                     calculos.setValorPneus(Pneus);
+                    Double calcPneu = calculos.CalculoPneus();
+                    calculos.setCalculoPneus(calcPneu);
+                    /********************************************************************************************/
                     calculos.setValorSeguro(Seguro);
+                    Double calcSeguro = Double.valueOf(String.valueOf(calculos.CalculoSeguro()));
+                    calculos.setCalculoSeguro(calcSeguro);
                     calculos.salvarvalores();
 
 
 
 
-
-
-                    Toast.makeText(getApplicationContext(), "\n"+ValorCarro+"\n"+ipva+"\n"+Oleo+"\n"+Seguro+"\n"+Pneus, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "\n" + ValorCarro + "\n" + ipva + "\n" + Oleo + "\n" + Seguro + "\n" + Pneus, Toast.LENGTH_SHORT).show();
                     Intent startPrincipal = new Intent(gastoPneusActivity.this, PrincipalActivity.class);
                     ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.fade_in, R.anim.fade_out);
                     ActivityCompat.startActivity(gastoPneusActivity.this, startPrincipal, activityOptionsCompat.toBundle());
