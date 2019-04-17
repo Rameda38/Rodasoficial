@@ -61,6 +61,7 @@ public class ValorCarroActivity extends AppCompatActivity {
 
                         calculos.setAluguel(aluguel);
                         calculos.setDiasFimAno(diasParaOFimDoaAno);
+
                         double calculoaluguel = calculos.calculoAluguel();
                         calculos.setCalculoAluguel(calculoaluguel);
                         calculos.salvarvalores();

@@ -1,14 +1,10 @@
 package com.example.rodas.model;
 
-import android.icu.text.DecimalFormat;
-
 import com.example.rodas.config.ConfiguracaoFirebase;
 import com.example.rodas.helper.Base64Custom;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -178,12 +174,10 @@ public class Calculos {
         return fim;
 
     }
-    NumberFormat numberFormat = NumberFormat.getInstance();
     public  Double CalculoSeguro(){
         Double gastoSeguro = valorSeguro/diasFimAno;
-       return gastoSeguro;
-
-            }
+        return gastoSeguro;
+    }
 
     public Double CalculoPneus() {
         Double gastoPneusDia = valorPneus / diasFimAno;

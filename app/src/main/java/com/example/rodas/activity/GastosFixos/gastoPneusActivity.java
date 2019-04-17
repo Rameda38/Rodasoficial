@@ -14,6 +14,9 @@ import com.example.rodas.model.Calculos;
 import com.example.rodas.R;
 import com.example.rodas.activity.PrincipalActivity;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class gastoPneusActivity extends AppCompatActivity {
     private EditText gastoPneus;
     private Button vaiparaFim;
@@ -40,25 +43,27 @@ public class gastoPneusActivity extends AppCompatActivity {
                     Double Oleo = dados.getDouble("Oleo");
                     /******************************************************************************************/
                     calculos.setValorCarro(ValorCarro);
-                    Double CalcDepreciacao = calculos.CalculoDepreciacao();
-                    calculos.setCalculoDepreciacao(CalcDepreciacao);
+                  /*  Double CalcDepreciacao = calculos.CalculoDepreciacao();
+                    calculos.setCalculoDepreciacao(CalcDepreciacao);*/
                     /*****************************************************************************************/
                     calculos.setIpva(ipva);
-                    Double calcIpva = calculos.CalculoIpva();
-                    calculos.setCalculoIpva(calcIpva);
+                    /*Double calcIpva = calculos.CalculoIpva();
+                    calculos.setCalculoIpva(calcIpva);*/
                     /*****************************************************************************************/
                     calculos.setValorOleo(Oleo);
                     Double calcOleo = calculos.CalculoOleo();
                     calculos.setCalculoOleo(calcOleo);
                     /*******************************************************************************************/
                     calculos.setValorPneus(Pneus);
-                    Double calcPneu = calculos.CalculoPneus();
-                    calculos.setCalculoPneus(calcPneu);
+                   /* Double calcPneu = calculos.CalculoPneus();
+                    calculos.setCalculoPneus(calcPneu);*/
                     /********************************************************************************************/
                     calculos.setValorSeguro(Seguro);
-                    Double calcSeguro = Double.valueOf(String.valueOf(calculos.CalculoSeguro()));
-                    calculos.setCalculoSeguro(calcSeguro);
+                    /*Double calcSeguro = calculos.CalculoSeguro();
+                    calculos.setCalculoSeguro(calcSeguro);*/
                     calculos.salvarvalores();
+
+
 
 
 
